@@ -6,6 +6,6 @@ public class project {
 
 		System.out.println("환영합니다");
 		System.out.println("환영해요");
-		System.out.println("희수접속");
+		System.out.println("gmltn");
 	}
 }
