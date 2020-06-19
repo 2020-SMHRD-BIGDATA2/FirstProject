@@ -8,5 +8,6 @@ public static void main(String[] args) {
 	System.out.println("환영해요");
 	
 	System.out.println("규범 등록");
+	System.out.println("의현등록");
 }
 }
