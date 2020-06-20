@@ -7,6 +7,8 @@ public class project {
 		System.out.println("환영합니다");
 		System.out.println("환영해요");
 
-		System.out.println("dfasd");
+		System.out.println("규범 등록확인");
+		System.out.println("의현등록");
 	}
+
 }
