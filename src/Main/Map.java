@@ -54,7 +54,7 @@ public class Map {
 
 		test.sup_mix(frame);
 		
-		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\JAVA\\Project\\src\\Img\\Fix_main.png").getImage();
+		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\Project\\Main.png").getImage();
 		Image image1 = list1;
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(image1.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));

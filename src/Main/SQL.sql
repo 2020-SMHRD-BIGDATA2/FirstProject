@@ -6,3 +6,5 @@ CREATE TABLE info (
 );
 
 SELECT * FROM info
+
+CREATE TABLE 

@@ -55,25 +55,25 @@ public class Fix {
 		btn_join.setBorderPainted(false);
 		btn_join.setContentAreaFilled(false);
 
-		JButton btn_library = new JButton("\uC11C\uC7AC");
-		btn_library.addActionListener(new ActionListener() {
+		JButton btn_page = new JButton("\uC11C\uC7AC");
+		btn_page.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				frame.dispose();
-				Library.main(null);
+				MyPage.main(null);
 			}
 		});
-		btn_library.setBounds(1054, 45, 57, 30);
-		frame.getContentPane().add(btn_library);
-		btn_library.setBorderPainted(false);
-		btn_library.setContentAreaFilled(false);
+		btn_page.setBounds(1054, 45, 57, 30);
+		frame.getContentPane().add(btn_page);
+		btn_page.setBorderPainted(false);
+		btn_page.setContentAreaFilled(false);
 
 		JButton btn_mylist = new JButton("\uBCF4\uC790\uAE30");
 		btn_mylist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				frame.dispose();
-				Library.main(null);
+				Mylist.main(null);
 			}
 		});
 		btn_mylist.setBounds(1130, 45, 57, 31);
@@ -151,7 +151,7 @@ public class Fix {
 		btn_avg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Map.main(null);
+				Avg.main(null);
 			}
 		});
 		btn_avg.setFont(new Font("±¼¸²", Font.BOLD, 12));

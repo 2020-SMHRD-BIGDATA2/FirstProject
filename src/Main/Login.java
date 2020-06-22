@@ -28,6 +28,7 @@ public class Login {
 	private JPasswordField txt_pw;
 	DAO dao = new DAO();
 
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -87,7 +88,7 @@ public class Login {
 					rs = psmt.executeQuery();
 
 					// if 문 시작해서 db안의 데이터의 id pw가 일치 할 시 실행
-					frame.dispose();
+					
 					// Main.main(null);
 
 //					String id = txt_id.getText();
@@ -100,6 +101,7 @@ public class Login {
 
 					if (name != null) {
 						JOptionPane.showMessageDialog(null, name + "님 환영합니다!");
+						frame.dispose();
 
 					} else {
 						JOptionPane.showMessageDialog(null, "로그인에 실패하였습니다!");
@@ -161,6 +163,7 @@ public class Login {
 			public void actionPerformed(ActionEvent e) {
 
 				frame.dispose();
+
 				Join.main(null);
 
 			}
