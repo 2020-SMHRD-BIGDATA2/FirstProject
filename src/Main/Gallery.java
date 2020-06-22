@@ -53,7 +53,7 @@ public class Gallery {
 
 		test.sup_mix(frame);
 		
-		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\Project\\M_gallery.png").getImage();
+		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\Project\\Gallery.png").getImage();
 		Image image1 = list1;
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(image1.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));

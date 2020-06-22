@@ -34,16 +34,14 @@ public class KidsBook {
 		frame.setBounds(100, 100, 1215, 640);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		String path = "C:\\Users\\SMHRD\\Desktop\\Project\\KidsBook.png";
+		kf.kidsFix(frame);
+
+		String path = "C:\\Users\\SHMRD\\Desktop\\Project\\KidsBook.png";
 		Image image = new ImageIcon(path).getImage();
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_background = new JLabel(new ImageIcon(image.getScaledInstance(1200, 600, Image.SCALE_SMOOTH)));
-
 		lbl_background.setBounds(0, 338, 1199, 601);
 		frame.getContentPane().add(lbl_background);
-
 		lbl_background.setBounds(0, 0, 1200, 600);
-		
-		kf.kidsFix(frame);
 	}
 }

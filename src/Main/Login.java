@@ -48,18 +48,22 @@ public class Login {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 400, 570);
+		frame.setBounds(100, 100, 410, 570);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		txt_id = new JTextField();
-		txt_id.setBounds(88, 169, 233, 40);
+		txt_id.setBounds(125, 204, 150, 30);
 		frame.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
+		txt_id.setOpaque(false);
+	    txt_id.setBorder(null);
 
 		txt_pw = new JPasswordField();
-		txt_pw.setBounds(88, 233, 233, 40);
+		txt_pw.setBounds(125, 259, 150, 30);
 		frame.getContentPane().add(txt_pw);
+		txt_pw.setOpaque(false);
+	    txt_pw.setBorder(null);
 
 		JButton btn_login = new JButton("");
 		btn_login.addActionListener(new ActionListener() {
@@ -146,38 +150,14 @@ public class Login {
 		btn_login.setBorderPainted(false);
 		btn_login.setContentAreaFilled(false);
 
-		JButton btn_IdPwfind = new JButton("");
-		btn_IdPwfind.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_IdPwfind.setBounds(171, 283, 163, 23);
-		frame.getContentPane().add(btn_IdPwfind);
-		btn_IdPwfind.setBorderPainted(false);
-		btn_IdPwfind.setContentAreaFilled(false);
-
-		btn_login.setBounds(100, 340, 233, 34);
+		btn_login.setBounds(120, 315, 160, 35);
 		frame.getContentPane().add(btn_login);
-		JButton btn_join = new JButton("");
-		btn_join.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 
-				frame.dispose();
-
-				Join.main(null);
-
-			}
-		});
-		btn_join.setBounds(237, 307, 96, 23);
-		frame.getContentPane().add(btn_join);
-		btn_join.setBorderPainted(false);
-		btn_join.setContentAreaFilled(false);
-
-		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\JAVA\\Project\\src\\Img\\Login_main.png").getImage();
+		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\Project\\LoginMain.png").getImage();
 		Image image1 = list1;
 
 		JLabel lbl_img = new JLabel(new ImageIcon(image1.getScaledInstance(400, 540, Image.SCALE_SMOOTH)));
-		lbl_img.setBounds(0, 0, 384, 540);
+		lbl_img.setBounds(0, 0, 400, 540);
 		frame.getContentPane().add(lbl_img);
 
 	}

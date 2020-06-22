@@ -37,15 +37,7 @@ public class KidsMain {
 		frame.setBounds(100, 100, 1215, 640);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		String path = "C:\\Users\\SMHRD\\Desktop\\Project\\KidsMain.png";
-		Image image = new ImageIcon(path).getImage();
-		frame.getContentPane().setLayout(null);
-		JLabel lbl_background = new JLabel(new ImageIcon(image.getScaledInstance(1200, 600, Image.SCALE_SMOOTH)));
 
-		lbl_background.setBounds(0, 338, 1199, 601);
-		frame.getContentPane().add(lbl_background);
-
-		lbl_background.setBounds(0, 0, 1200, 600);
 
 		JButton btn_book = new JButton("\uB3C4\uC11C");
 		btn_book.setBounds(96, 191, 97, 41);
@@ -60,7 +52,7 @@ public class KidsMain {
 			}
 		});
 
-		JButton btn_best = new JButton("BEST");
+		JButton btn_best = new JButton("베스트");
 		btn_best.setBounds(96, 245, 97, 41);
 		frame.getContentPane().add(btn_best);
 		btn_best.setBorderPainted(false);
@@ -73,11 +65,19 @@ public class KidsMain {
 			}
 		});
 
-		JButton btn_allAge = new JButton("\uC804\uC5F0\uB839");
+		JButton btn_allAge = new JButton("전연령");
 		btn_allAge.setBounds(96, 303, 97, 41);
+		btn_allAge.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				
+				frame.dispose();
+				Main.main(null);
+			}
+		});
 		frame.getContentPane().add(btn_allAge);
 		btn_allAge.setBorderPainted(false);
 		btn_allAge.setContentAreaFilled(false);
+		
 //			btn_allAge.addMouseListener(new MouseAdapter() {
 //				@Override
 //				public void mouseClicked(MouseEvent e) {
@@ -86,7 +86,7 @@ public class KidsMain {
 //				}
 //			});
 
-		JButton btn_register = new JButton("\uAC8C\uC2DC\uD310");
+		JButton btn_register = new JButton("도서등록");
 		btn_register.setBounds(96, 355, 97, 41);
 		frame.getContentPane().add(btn_register);
 		btn_register.setBorderPainted(false);
@@ -99,7 +99,7 @@ public class KidsMain {
 			}
 		});
 
-		JButton btn_gallery = new JButton("\uD1B5\uACC4");
+		JButton btn_gallery = new JButton("게시판");
 		btn_gallery.setBounds(96, 409, 97, 41);
 		frame.getContentPane().add(btn_gallery);
 		btn_gallery.setBorderPainted(false);
@@ -112,7 +112,7 @@ public class KidsMain {
 			}
 		});
 
-		JButton btn_avg = new JButton("\uB3C4\uC11C\uAD00 \uC18C\uAC1C");
+		JButton btn_avg = new JButton("통계");
 		btn_avg.setBounds(96, 463, 97, 41);
 		frame.getContentPane().add(btn_avg);
 		btn_avg.setBorderPainted(false);
@@ -168,7 +168,7 @@ public class KidsMain {
 		btn_library.setBorderPainted(false);
 		btn_library.setContentAreaFilled(false);
 
-		JButton btn_home = new JButton("New button");
+		JButton btn_home = new JButton("");
 		btn_home.setBounds(33, 10, 183, 171);
 		frame.getContentPane().add(btn_home);
 		btn_home.setBorderPainted(false);
@@ -180,6 +180,14 @@ public class KidsMain {
 				KidsMain.main(null);
 			}
 		});
+		
+		String path = "C:\\Users\\SHMRD\\Desktop\\Project\\KidsMain.png";
+		Image image = new ImageIcon(path).getImage();
+		frame.getContentPane().setLayout(null);
+		JLabel lbl_background = new JLabel(new ImageIcon(image.getScaledInstance(1200, 600, Image.SCALE_SMOOTH)));
+		lbl_background.setBounds(0, 338, 1199, 601);
+		frame.getContentPane().add(lbl_background);
+		lbl_background.setBounds(0, 0, 1200, 600);
 
 	}
 

@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class KidsFix {
 	public void kidsFix(JFrame frame) {
-		JButton btn_book = new JButton("\uB3C4\uC11C");
+		JButton btn_book = new JButton("도서");
 		btn_book.setBounds(96, 191, 97, 41);
 		frame.getContentPane().add(btn_book);
 		btn_book.setBorderPainted(false);
@@ -21,7 +21,7 @@ public class KidsFix {
 			}
 		});
 
-		JButton btn_best = new JButton("BEST");
+		JButton btn_best = new JButton("베스트");
 		btn_best.setBounds(96, 245, 97, 41);
 		frame.getContentPane().add(btn_best);
 		btn_best.setBorderPainted(false);
@@ -34,8 +34,15 @@ public class KidsFix {
 			}
 		});
 
-		JButton btn_allAge = new JButton("\uC804\uC5F0\uB839");
+		JButton btn_allAge = new JButton("전연령");
 		btn_allAge.setBounds(96, 303, 97, 41);
+		btn_allAge.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				
+				frame.dispose();
+				Main.main(null);
+			}
+		});
 		frame.getContentPane().add(btn_allAge);
 		btn_allAge.setBorderPainted(false);
 		btn_allAge.setContentAreaFilled(false);
@@ -47,7 +54,7 @@ public class KidsFix {
 //		}
 //	});
 
-		JButton btn_register = new JButton("\uAC8C\uC2DC\uD310");
+		JButton btn_register = new JButton("도서 등록");
 		btn_register.setBounds(96, 355, 97, 41);
 		frame.getContentPane().add(btn_register);
 		btn_register.setBorderPainted(false);
@@ -60,7 +67,7 @@ public class KidsFix {
 			}
 		});
 
-		JButton btn_gallery = new JButton("\uD1B5\uACC4");
+		JButton btn_gallery = new JButton("게시판");
 		btn_gallery.setBounds(96, 409, 97, 41);
 		frame.getContentPane().add(btn_gallery);
 		btn_gallery.setBorderPainted(false);
@@ -73,7 +80,7 @@ public class KidsFix {
 			}
 		});
 
-		JButton btn_avg = new JButton("\uB3C4\uC11C\uAD00 \uC18C\uAC1C");
+		JButton btn_avg = new JButton("통계");
 		btn_avg.setBounds(96, 463, 97, 41);
 		frame.getContentPane().add(btn_avg);
 		btn_avg.setBorderPainted(false);
@@ -98,26 +105,52 @@ public class KidsFix {
 				KidsMap.main(null);
 			}
 		});
+		
+		JButton btn_login = new JButton("로그인");
+		btn_login.setBounds(899, 64, 58, 23);
+		frame.getContentPane().add(btn_login);
+		btn_login.setBorderPainted(false);
+		btn_login.setContentAreaFilled(false);
+		btn_login.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 
-		JButton btn_join = new JButton("New button");
+		JButton btn_join = new JButton("회원가입");
 		btn_join.setBounds(975, 64, 60, 23);
 		frame.getContentPane().add(btn_join);
 		btn_join.setBorderPainted(false);
 		btn_join.setContentAreaFilled(false);
 
-		JButton btn_myPage = new JButton("New button");
+		JButton btn_myPage = new JButton("마이페이지");
 		btn_myPage.setBounds(1047, 64, 60, 23);
 		frame.getContentPane().add(btn_myPage);
 		btn_myPage.setBorderPainted(false);
 		btn_myPage.setContentAreaFilled(false);
+		btn_myPage.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				MyPage.main(null);
+			}
+		});
 
-		JButton btn_library = new JButton("New button");
+		JButton btn_library = new JButton("서재");
 		btn_library.setBounds(1119, 64, 63, 23);
 		frame.getContentPane().add(btn_library);
 		btn_library.setBorderPainted(false);
 		btn_library.setContentAreaFilled(false);
+		btn_library.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Library.main(null);
+			}
+		});
 
-		JButton btn_home = new JButton("New button");
+		JButton btn_home = new JButton("");
 		btn_home.setBounds(33, 10, 183, 171);
 		frame.getContentPane().add(btn_home);
 		btn_home.setBorderPainted(false);
