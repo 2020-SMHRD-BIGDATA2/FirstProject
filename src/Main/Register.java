@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class Info {
+public class Register {
 
 	private JFrame frame;
 	Fix test = new Fix();
@@ -25,7 +26,7 @@ public class Info {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Info window = new Info();
+					Register window = new Register();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +38,7 @@ public class Info {
 	/**
 	 * Create the application.
 	 */
-	public Info() {
+	public Register() {
 		initialize();
 	}
 
@@ -53,10 +54,10 @@ public class Info {
 
 		test.sup_mix(frame);
 		
-		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\Project\\M_info.png").getImage();
-		Image image1 = list1;
+		URL path = this.getClass().getResource("..\\img\\Register.png");
+		Image image = new ImageIcon(path).getImage();
 
-		JLabel lblNewLabel = new JLabel(new ImageIcon(image1.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
+		JLabel lblNewLabel = new JLabel(new ImageIcon(image.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
 		lblNewLabel.setBounds(0, 0, 1199, 601);
 		frame.getContentPane().add(lblNewLabel);
 

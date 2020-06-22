@@ -68,32 +68,32 @@ public class Fix {
 		btn_page.setBorderPainted(false);
 		btn_page.setContentAreaFilled(false);
 
-		JButton btn_mylist = new JButton("\uBCF4\uC790\uAE30");
-		btn_mylist.addActionListener(new ActionListener() {
+		JButton btn_library = new JButton("\uBCF4\uC790\uAE30");
+		btn_library.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				frame.dispose();
-				Mylist.main(null);
+				Library.main(null);
 			}
 		});
-		btn_mylist.setBounds(1130, 45, 57, 31);
-		frame.getContentPane().add(btn_mylist);
-		btn_mylist.setBorderPainted(false);
-		btn_mylist.setContentAreaFilled(false);
+		btn_library.setBounds(1130, 45, 57, 31);
+		frame.getContentPane().add(btn_library);
+		btn_library.setBorderPainted(false);
+		btn_library.setContentAreaFilled(false);
 
-		JButton btn_gallery = new JButton("\uAC8C\uC2DC\uD310");
-		btn_gallery.setFont(new Font("±º∏≤", Font.BOLD, 12));
-		btn_gallery.addActionListener(new ActionListener() {
+		JButton btn_register = new JButton("µµº≠ µÓ∑œ");
+		btn_register.setFont(new Font("±º∏≤", Font.BOLD, 12));
+		btn_register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				frame.dispose();
-				Gallery.main(null);
+				Register.main(null);
 			}
 		});
-		btn_gallery.setBounds(88, 360, 100, 40);
-		frame.getContentPane().add(btn_gallery);
-		btn_gallery.setBorderPainted(false);
-		btn_gallery.setContentAreaFilled(false);
+		btn_register.setBounds(88, 360, 100, 40);
+		frame.getContentPane().add(btn_register);
+		btn_register.setBorderPainted(false);
+		btn_register.setContentAreaFilled(false);
 
 		JButton btn_best = new JButton("\uBCA0\uC2A4\uD2B8");
 		btn_best.addActionListener(new ActionListener() {
@@ -113,7 +113,7 @@ public class Fix {
 		btn_kid.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Avg.main(null);
+				KidsMain.main(null);
 			}
 		});
 		btn_kid.setFont(new Font("±º∏≤", Font.BOLD, 12));
@@ -147,32 +147,32 @@ public class Fix {
 		btn_home.setBorderPainted(false);
 		btn_home.setContentAreaFilled(false);
 
-		JButton btn_avg = new JButton("\uD1B5\uACC4");
+		JButton btn_Gallery = new JButton("∞‘Ω√∆«");
+		btn_Gallery.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Gallery.main(null);
+			}
+		});
+		btn_Gallery.setFont(new Font("±º∏≤", Font.BOLD, 12));
+		btn_Gallery.setBounds(88, 420, 100, 40);
+		frame.getContentPane().add(btn_Gallery);
+		btn_Gallery.setBorderPainted(false);
+		btn_Gallery.setContentAreaFilled(false);
+
+		JButton btn_avg = new JButton("≈Î∞Ë");
 		btn_avg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				frame.dispose();
 				Avg.main(null);
 			}
 		});
 		btn_avg.setFont(new Font("±º∏≤", Font.BOLD, 12));
-		btn_avg.setBounds(88, 420, 100, 40);
-		frame.getContentPane().add(btn_avg);
-		btn_avg.setBorderPainted(false);
 		btn_avg.setContentAreaFilled(false);
-
-		JButton btn_info = new JButton("µµº≠ µÓ∑œ");
-		btn_info.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				frame.dispose();
-				Info.main(null);
-			}
-		});
-		btn_info.setFont(new Font("±º∏≤", Font.BOLD, 12));
-		btn_info.setContentAreaFilled(false);
-		btn_info.setBorderPainted(false);
-		btn_info.setBounds(88, 475, 100, 40);
-		frame.getContentPane().add(btn_info);
+		btn_avg.setBorderPainted(false);
+		btn_avg.setBounds(88, 475, 100, 40);
+		frame.getContentPane().add(btn_avg);
 
 		JButton btn_map = new JButton("");
 		btn_map.addActionListener(new ActionListener() {
