@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,8 +38,7 @@ public class KidsMain {
 		frame.setBounds(100, 100, 1215, 640);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-
+		kf.kidsFix(frame);
 		JButton btn_book = new JButton("\uB3C4\uC11C");
 		btn_book.setBounds(96, 191, 97, 41);
 		frame.getContentPane().add(btn_book);
@@ -78,13 +78,13 @@ public class KidsMain {
 		btn_allAge.setBorderPainted(false);
 		btn_allAge.setContentAreaFilled(false);
 		
-//			btn_allAge.addMouseListener(new MouseAdapter() {
-//				@Override
-//				public void mouseClicked(MouseEvent e) {
-//					frame.dispose();
-//					AllMain.main(null);
-//				}
-//			});
+			btn_allAge.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					frame.dispose();
+					Main.main(null);
+				}
+			});
 
 		JButton btn_register = new JButton("도서등록");
 		btn_register.setBounds(96, 355, 97, 41);
@@ -138,6 +138,7 @@ public class KidsMain {
 			}
 		});
 
+
 		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
 		btn_login.setBounds(899, 64, 58, 23);
 		frame.getContentPane().add(btn_login);
@@ -146,6 +147,9 @@ public class KidsMain {
 		btn_login.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				Login.main(null);
+
 				
 			}
 		});
@@ -181,7 +185,7 @@ public class KidsMain {
 			}
 		});
 		
-		String path = "C:\\Users\\SHMRD\\Desktop\\Project\\KidsMain.png";
+		URL path = this.getClass().getResource("..\\img\\KidsMain.png");
 		Image image = new ImageIcon(path).getImage();
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_background = new JLabel(new ImageIcon(image.getScaledInstance(1200, 600, Image.SCALE_SMOOTH)));

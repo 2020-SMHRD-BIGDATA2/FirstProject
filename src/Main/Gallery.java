@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -53,10 +54,10 @@ public class Gallery {
 
 		test.sup_mix(frame);
 		
-		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\Project\\Gallery.png").getImage();
-		Image image1 = list1;
+		URL path = this.getClass().getResource("..\\img\\Gallery.png");
+		Image image = new ImageIcon(path).getImage();
 
-		JLabel lblNewLabel = new JLabel(new ImageIcon(image1.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
+		JLabel lblNewLabel = new JLabel(new ImageIcon(image.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
 		lblNewLabel.setBounds(0, 0, 1199, 601);
 		frame.getContentPane().add(lblNewLabel);
 

@@ -2,6 +2,8 @@ package Main;
 
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.net.URL;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -36,7 +38,7 @@ public class KidsBook {
 
 		kf.kidsFix(frame);
 
-		String path = "C:\\Users\\SHMRD\\Desktop\\Project\\KidsBook.png";
+		URL path = this.getClass().getResource("..\\img\\KidsBook.png");
 		Image image = new ImageIcon(path).getImage();
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_background = new JLabel(new ImageIcon(image.getScaledInstance(1200, 600, Image.SCALE_SMOOTH)));

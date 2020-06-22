@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -153,10 +154,10 @@ public class Login {
 		btn_login.setBounds(120, 315, 160, 35);
 		frame.getContentPane().add(btn_login);
 
-		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\Project\\LoginMain.png").getImage();
-		Image image1 = list1;
+		URL path = this.getClass().getResource("..\\img\\LoginMain.png");
+		Image image = new ImageIcon(path).getImage();
 
-		JLabel lbl_img = new JLabel(new ImageIcon(image1.getScaledInstance(400, 540, Image.SCALE_SMOOTH)));
+		JLabel lbl_img = new JLabel(new ImageIcon(image.getScaledInstance(400, 540, Image.SCALE_SMOOTH)));
 		lbl_img.setBounds(0, 0, 400, 540);
 		frame.getContentPane().add(lbl_img);
 

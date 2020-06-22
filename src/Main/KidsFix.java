@@ -46,13 +46,13 @@ public class KidsFix {
 		frame.getContentPane().add(btn_allAge);
 		btn_allAge.setBorderPainted(false);
 		btn_allAge.setContentAreaFilled(false);
-//	btn_allAge.addMouseListener(new MouseAdapter() {
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//			frame.dispose();
-//			AllMain.main(null);
-//		}
-//	});
+	btn_allAge.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			frame.dispose();
+			Main.main(null);
+		}
+	});
 
 		JButton btn_register = new JButton("도서 등록");
 		btn_register.setBounds(96, 355, 97, 41);
