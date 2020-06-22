@@ -61,6 +61,7 @@ public class Main {
 		txt_find.setBounds(275, 42, 540, 45);
 		frame.getContentPane().add(txt_find);
 		txt_find.setColumns(10);
+		txt_find.setBackground(null);
 
 		Image[] list = new Image[3];
 		list[0] = new ImageIcon("C:\\Users\\SHMRD\\Pictures\\Screenshots\\121.png").getImage();

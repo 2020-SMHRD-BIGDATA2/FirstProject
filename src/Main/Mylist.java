@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class Library {
+public class Mylist {
 
 	private JFrame frame;
 	Fix test = new Fix();
@@ -25,7 +25,7 @@ public class Library {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Library window = new Library();
+					Mylist window = new Mylist();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class Library {
 	/**
 	 * Create the application.
 	 */
-	public Library() {
+	public Mylist() {
 		initialize();
 	}
 
@@ -54,7 +54,7 @@ public class Library {
 
 		test.sup_mix(frame);
 		
-		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\JAVA\\Project\\src\\Img\\Fix_main.png").getImage();
+		Image list1 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\Project\\Main.png").getImage();
 		Image image1 = list1;
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(image1.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
