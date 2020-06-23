@@ -45,8 +45,8 @@ public class Fix {
 		JButton btn_join = new JButton("\uD68C\uC6D0\uAC00\uC785");
 		btn_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// frame.dispose();
-				Join.main(null);
+				frame.dispose();
+				Join2.main(null);
 
 			}
 		});

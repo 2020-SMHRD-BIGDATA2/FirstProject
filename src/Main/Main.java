@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 public class Main {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField txt_find;
 	int cnt = 0;
 

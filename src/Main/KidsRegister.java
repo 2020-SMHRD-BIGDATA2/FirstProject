@@ -7,6 +7,8 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
 
 public class KidsRegister {
 
@@ -38,6 +40,12 @@ public class KidsRegister {
 
 		kf.kidsFix(frame);
 
+		JPanel panel = new JPanel();
+		panel.setBounds(220, 180, 660, 390);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		
 		URL path = this.getClass().getResource("..\\img\\KidsRegister.png");
 		Image image = new ImageIcon(path).getImage();
 		frame.getContentPane().setLayout(null);
@@ -45,6 +53,7 @@ public class KidsRegister {
 		lbl_background.setBounds(0, 338, 1199, 601);
 		frame.getContentPane().add(lbl_background);
 		lbl_background.setBounds(0, 0, 1200, 600);
+		
 
 	}
 }
