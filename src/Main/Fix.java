@@ -54,11 +54,7 @@ public class Fix {
 		btn_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-<<<<<<< HEAD
 				Join2.main(null);
-=======
-				Join.main(null);
->>>>>>> branch 'master' of https://github.com/euihyeon0329/FirstProject.git
 
 			}
 		});
