@@ -15,6 +15,9 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JPanel;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 
 public class Main {
 
@@ -125,6 +128,32 @@ public class Main {
 		frame.getContentPane().add(btn_right);
 		btn_right.setBorderPainted(false);
 		btn_right.setContentAreaFilled(false);
+		
+		JButton btnNewButton = new JButton("\uD76C\uC218\uC57C \uC774\uAC70\uBD10");
+
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				cnt = 1;
+				btnNewButton.setIcon(new ImageIcon(list[cnt]));
+				
+		        
+		        
+		        
+		        
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				cnt = 2;
+				btnNewButton.setIcon(new ImageIcon(list[cnt]));
+				
+			}
+		});
+
+
+
+		btnNewButton.setBounds(12, 123, 183, 66);
+		frame.getContentPane().add(btnNewButton);
 
 		URL path = this.getClass().getResource("..\\img\\Main.png");
 		Image image1 = new ImageIcon(path).getImage();
@@ -132,6 +161,8 @@ public class Main {
 		JLabel lblNewLabel = new JLabel(new ImageIcon(image1.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
 		lblNewLabel.setBounds(0, 0, 1199, 601);
 		frame.getContentPane().add(lblNewLabel);
+		
+
 
 	}
 }
