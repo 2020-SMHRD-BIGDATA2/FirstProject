@@ -1,6 +1,7 @@
 package Main;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -12,7 +13,17 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
 import javax.swing.JPasswordField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MyPage {
 
@@ -66,7 +77,7 @@ public class MyPage {
 
 		
 		panel_change = new JPanel();
-		panel_change.setBounds(257, 175, 633, 395);
+		panel_change.setBounds(257, 115, 633, 395);
 		frame.getContentPane().add(panel_change);
 		panel_change.setLayout(null);
 		panel_change.setVisible(false);
@@ -96,6 +107,13 @@ public class MyPage {
 		panel_change.add(lblNewLabel_22_2);
 		
 		txt_name = new JTextField();
+		txt_name.setText("ID");
+		txt_name.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			txt_name.setText(null);
+			}
+		});
 		txt_name.setBounds(76, 44, 135, 24);
 		panel_change.add(txt_name);
 		txt_name.setColumns(10);
@@ -155,7 +173,7 @@ public class MyPage {
 		/////////////////////////////////////////
 
 		panel = new JPanel();
-		panel.setBounds(257, 175, 633, 395);
+		panel.setBounds(257, 115, 633, 395);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
@@ -163,15 +181,15 @@ public class MyPage {
 		lblNewLabel_1.setBounds(12, 10, 81, 24);
 		panel.add(lblNewLabel_1);
 
-		JLabel lblNewLabel_1_1 = new JLabel("\uB0B4 \uCC45");
+		JLabel lblNewLabel_1_1 = new JLabel("\uB0B4 \uB9C8\uC77C\uB9AC\uC9C0");
 		lblNewLabel_1_1.setBounds(12, 186, 81, 24);
 		panel.add(lblNewLabel_1_1);
 
-		JLabel lblNewLabel_1_2 = new JLabel("\uB0B4 \uCC45");
+		JLabel lblNewLabel_1_2 = new JLabel("\uB300\uC5EC\uD55C \uCC45 \uBAA9\uB85D");
 		lblNewLabel_1_2.setBounds(304, 15, 81, 24);
 		panel.add(lblNewLabel_1_2);
 
-		JLabel lblNewLabel_1_3 = new JLabel("\uB0B4 \uCC45");
+		JLabel lblNewLabel_1_3 = new JLabel("\uB0B4 \uD604\uD669");
 		lblNewLabel_1_3.setBounds(304, 186, 81, 24);
 		panel.add(lblNewLabel_1_3);
 
@@ -223,7 +241,45 @@ public class MyPage {
 					}
 				});
 
-		
+				DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
+				
+				dataset1.addValue(20, "장르", "범죄");
+				dataset1.addValue(30, "장르", "로맨스");
+				dataset1.addValue(15, "장르", "스릴러");
+				dataset1.addValue(40, "장르", "19");
+
+				
+				JFreeChart barChart = ChartFactory.createBarChart("이번 달 대여", "장르","대여 수",dataset1,PlotOrientation.VERTICAL,false,false,false);
+				
+				Font f = new Font("Gulim",Font.BOLD,14);
+				
+				barChart.getTitle().setFont(f);
+				
+				CategoryPlot plot1 = barChart.getCategoryPlot();
+
+				plot1.getDomainAxis().setLabelFont(f);
+				plot1.getDomainAxis().setTickLabelFont(f);
+
+				plot1.getRangeAxis().setLabelFont(f);
+				plot1.getRangeAxis().setTickLabelFont(f);
+				panel.setLayout(null);
+
+				ChartPanel chartpanel = new ChartPanel(barChart);
+				chartpanel.setBounds(314, 220, 307, 165);
+				
+				panel.add(chartpanel);
+				
+				JLabel lblNewLabel_3 = new JLabel("\uBC14\uCF54\uB4DC \uC774\uBBF8\uC9C0");
+				lblNewLabel_3.setBounds(12, 313, 278, 72);
+				panel.add(lblNewLabel_3);
+				
+				JLabel lblNewLabel_4 = new JLabel("\uB0B4 \uB9C8\uC77C\uB9AC\uC9C0");
+				lblNewLabel_4.setBounds(12, 220, 278, 72);
+				panel.add(lblNewLabel_4);
+				
+				JLabel lblNewLabel_5 = new JLabel("\uCC45 \uBAA9\uB85D \uBD88\uB7EC\uC624\uAE30");
+				lblNewLabel_5.setBounds(304, 49, 317, 120);
+				panel.add(lblNewLabel_5);
 
 		
 
