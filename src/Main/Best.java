@@ -60,25 +60,17 @@ public class Best {
 		test.sup_mix(frame);
 		frame.getContentPane().setLayout(null);
 		
-		
-		
-		
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(266, 168, 583, 406);
-		frame.getContentPane().add(scrollPane);
-		
 		Image list2 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\JAVA\\Project\\src\\Img\\best_1.png").getImage();
 		Image image2 = list2;
 		JLabel lbl_img1 = new JLabel(new ImageIcon(image2.getScaledInstance(140, 180, Image.SCALE_SMOOTH)));
-		lbl_img1.setBounds(266, 122, 127, 176);
+		lbl_img1.setBounds(244, 122, 127, 176);
 		frame.getContentPane().add(lbl_img1);
 		
 		
 		Image list3 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\JAVA\\Project\\src\\Img\\best_2.png").getImage();
 		Image image3 = list3;
 		JLabel lbl_img2 = new JLabel(new ImageIcon(image3.getScaledInstance(140, 180, Image.SCALE_SMOOTH)));
-		lbl_img2.setBounds(434, 122, 127, 176);
+		lbl_img2.setBounds(403, 122, 127, 176);
 		frame.getContentPane().add(lbl_img2);
 		
 		Image list4 = new ImageIcon("C:\\Users\\SHMRD\\Desktop\\JAVA\\Project\\src\\Img\\best_3.png").getImage();
@@ -101,6 +93,8 @@ public class Best {
 		JLabel lblNewLabel = new JLabel(new ImageIcon(image.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
 		lblNewLabel.setBounds(0, 0, 1199, 601);
 		frame.getContentPane().add(lblNewLabel);
+		
+
 		
 	}
 }

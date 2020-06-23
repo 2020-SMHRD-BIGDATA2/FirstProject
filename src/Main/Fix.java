@@ -133,6 +133,9 @@ public class Fix {
 		JButton btn_find = new JButton("");
 		btn_find.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				/// 검색창 입력버튼
+				
 			}
 		});
 		btn_find.setFont(new Font("굴림", Font.PLAIN, 10));
