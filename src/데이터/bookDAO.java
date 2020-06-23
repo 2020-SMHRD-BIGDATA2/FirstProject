@@ -1,5 +1,10 @@
-package Main;
+package 데이터;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,10 +12,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAO {
+public class bookDAO {
+
 	private Connection conn;
 	private PreparedStatement psmt;
 	private ResultSet rs;
+	private String bookid;
 
 	private void getConnection() {
 		try {
@@ -45,7 +52,7 @@ public class DAO {
 		}
 	}
 
-	public int join(VO vo) {
+	public int insert(bookVO vo) {
 
 		int cnt = 0;
 
@@ -53,79 +60,66 @@ public class DAO {
 
 			getConnection();
 
-			String sql = "INSERT INTO MEMBERS VALUES(?,?,?,?,?,?)";
-
+			String sql = "INSERT INTO BOOKS VALUES(?,?,?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
-
 			// id중복 불가능 기능 추가
-//			for (int i = 0; i < args.length; i++) {
-//				
-//			}
-
-			psmt.setString(1, vo.getId());
-			psmt.setString(2, vo.getPw());
-			psmt.setString(3, vo.getName());
-			psmt.setInt(4, vo.getAge());
-			psmt.setString(5, vo.getAdd());
-			psmt.setString(6, vo.getPnum());
-			
+			psmt.setString(1, vo.getBookid());
+			psmt.setString(2, vo.getName());
+			psmt.setString(3, vo.getAuthor());
+			psmt.setString(4, vo.getPublisher()+"null");
+			psmt.setString(5, "1");
+			psmt.setInt(6, vo.getYear());
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
 			// url, id, pw 중 하나라도 틀릴 가능성이 있기 때문에 작성
 			e.printStackTrace();
-
 		} finally {
 			// 여기서 닫아주면댐 (4번)
 			close();
 		}
-
 		return cnt;
 	}
 
-	public String login(VO vo) {
-		String name = null;
+//	public String login(bookVO vo) {
+//		String name = null;
+//
+//		try {
+//			getConnection();
+//
+//			String sql = "SELECT * FROM BOOKS WHERE bookid = ?";
+//
+//			psmt = conn.prepareStatement(sql);
+//			psmt.setString(1, vo.getBookid());
+//			rs = psmt.executeQuery(); // 데이터를 가져와서 확인을 할 때
+//			// 로그인 성공 실패 하는 부분
+//			if (rs.next()) { // 로그인 성공시 들어오는 곳
+//				name = rs.getString("name");// 로그인 실패시 null 이 됨
+//
+//			}
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return name;
+//	}
+	public ArrayList<bookVO> selectAll() {
 
-		try {
-			getConnection();
-
-			String sql = "SELECT * FROM MEMBERS WHERE MEM_ID = ? AND MEM_PW = ?";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getId());
-			psmt.setString(2, vo.getPw());
-			rs = psmt.executeQuery(); // 데이터를 가져와서 확인을 할 때
-			// 로그인 성공 실패 하는 부분
-			if (rs.next()) { // 로그인 성공시 들어오는 곳
-				name = rs.getString("MEM_NAME");// 로그인 실패시 null 이 됨
-
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return name;
-	}
-
-	public ArrayList<VO> selectAll() {
-
-		ArrayList<VO> list = new ArrayList<VO>();
+		ArrayList<bookVO> list = new ArrayList<bookVO>();
 
 		getConnection();
 
 		try {
-			String sql = "SELECT * FROM MEMBERS";
+			String sql = "SELECT * FROM BOOKS";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				String id = rs.getString("MEM_ID");
-				String name = rs.getString("MEM_NAME");
-				int age = rs.getInt("MEM_AGE");
-
-				VO vo = new VO(id, name, age);
+				bookid = rs.getString(1);
+				System.out.println(bookid);
+				bookVO vo = new bookVO(bookid);
 				list.add(vo);
 			}
 		} catch (SQLException e) {

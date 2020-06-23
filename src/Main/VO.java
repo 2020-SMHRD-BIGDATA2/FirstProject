@@ -6,6 +6,16 @@ public class VO {
 	private String pw;
 	private String name;
 	private int age;
+	private String add;
+	private String pnum;
+
+	public VO(String id, String pw, String name, int age, String add) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.age = age;
+	}
 
 	public VO(String id, String pw) {
 		this.id = id;
@@ -24,37 +34,64 @@ public class VO {
 		this.name = name;
 		this.age = age;
 	}
+	
+	public VO(String id, String pw, String name, int age, String add, String pnum) {
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.age = age;
+		this.add = add;
+		this.pnum = pnum;
+	}
 
 	public String getId() {
 		return id;
-	}
-
-	public String getPw() {
-		return pw;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public int getAge() {
-		return age;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
+	public String getPw() {
+		return pw;
+	}
+
 	public void setPw(String pw) {
 		this.pw = pw;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	public int getAge() {
+		return age;
+	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	public String getAdd() {
+		return add;
+	}
+
+	public void setAdd(String add) {
+		this.add = add;
+	}
+
+	public String getPnum() {
+		return pnum;
+	}
+
+	public void setPnum(String pnum) {
+		this.pnum = pnum;
+	}
+	
+
 
 }
