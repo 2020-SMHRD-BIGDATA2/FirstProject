@@ -17,12 +17,15 @@ public class Fix {
 	JTextField txt_find;
 
 	public void sup_mix(JFrame frame) {
+		String str = "로그아웃";
 
-		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
+		JButton btn_login = new JButton("로그인");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				Login.main(null);
+				
+				btn_login.setText(str);
 
 			}
 		});
@@ -51,7 +54,11 @@ public class Fix {
 		btn_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+<<<<<<< HEAD
 				Join2.main(null);
+=======
+				Join.main(null);
+>>>>>>> branch 'master' of https://github.com/euihyeon0329/FirstProject.git
 
 			}
 		});
@@ -130,6 +137,9 @@ public class Fix {
 		JButton btn_find = new JButton("");
 		btn_find.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				/// 검색창 입력버튼
+				
 			}
 		});
 		btn_find.setFont(new Font("굴림", Font.PLAIN, 10));

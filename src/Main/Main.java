@@ -21,7 +21,7 @@ import java.awt.event.MouseAdapter;
 
 public class Main {
 
-	JFrame frame;
+	private JFrame frame;
 	private JTextField txt_find;
 	int cnt = 0;
 
@@ -74,15 +74,13 @@ public class Main {
 
 		Image image = list[cnt];
 
-		JLabel lbl_img1 = new JLabel(new ImageIcon(image.getScaledInstance(460, 341, Image.SCALE_SMOOTH)));
+		JLabel lbl_img1 = new JLabel(new ImageIcon(image.getScaledInstance(660, 341, Image.SCALE_SMOOTH)));
 		lbl_img1.setBackground(Color.WHITE);
 		lbl_img1.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_img1.setBounds(260, 184, 600, 331);
 		frame.getContentPane().add(lbl_img1);
 
-		
 		test.sup_mix(frame);
-		
 
 		JButton btn_left = new JButton("");
 		btn_left.addActionListener(new ActionListener() {
@@ -93,7 +91,7 @@ public class Main {
 				}
 
 				// label에 이미지를 재설정 -> 매개변수로 Icon -> 이미지를 세팅할거니까 new ImageIcon()
-				lbl_img1.setIcon(new ImageIcon(list[cnt]));
+				lbl_img1.setIcon(new ImageIcon(list[cnt].getScaledInstance(660, 341, Image.SCALE_SMOOTH)));
 				cnt++;
 
 				if (cnt > 2) {
@@ -115,7 +113,7 @@ public class Main {
 					cnt = 2;
 				}
 
-				lbl_img1.setIcon(new ImageIcon(list[cnt]));
+				lbl_img1.setIcon(new ImageIcon(list[cnt].getScaledInstance(660, 341, Image.SCALE_SMOOTH)));
 				cnt--;
 
 				if (cnt < 0) {
