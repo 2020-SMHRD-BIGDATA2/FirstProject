@@ -17,12 +17,15 @@ public class Fix {
 	JTextField txt_find;
 
 	public void sup_mix(JFrame frame) {
+		String str = "로그아웃";
 
-		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
+		JButton btn_login = new JButton("로그인");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				Login.main(null);
+				
+				btn_login.setText(str);
 
 			}
 		});
@@ -50,7 +53,7 @@ public class Fix {
 		JButton btn_join = new JButton("\uD68C\uC6D0\uAC00\uC785");
 		btn_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// frame.dispose();
+				frame.dispose();
 				Join.main(null);
 
 			}
