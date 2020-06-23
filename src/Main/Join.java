@@ -38,6 +38,8 @@ public class Join {
 	private JPasswordField txt_pw;
 
 	static ArrayList<VO> list = new ArrayList<VO>();
+	private JTextField txt_add;
+	private JTextField txt_pnum;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -74,7 +76,7 @@ public class Join {
 
 		txt_age = new JTextField();
 		txt_age.setColumns(10);
-		txt_age.setBounds(388, 250, 200, 37);
+		txt_age.setBounds(388, 247, 200, 37);
 		frame.getContentPane().add(txt_age);
 
 		JLabel lbl_join = new JLabel("\uD68C\uC6D0 \uAC00\uC785");
@@ -115,8 +117,10 @@ public class Join {
 				String pw = txt_pw.getText();
 				String name = txt_name.getText();
 				int age = Integer.parseInt(txt_age.getText());
-
-				VO vo = new VO(id, pw, name, age);
+				String add = txt_add.getText();
+				String pnum = txt_pnum.getText();
+				
+				VO vo = new VO(id, pw, name, age, add, pnum);
 				list.add(vo);
 
 				Connection conn = null;
@@ -135,7 +139,7 @@ public class Join {
 
 					conn = DriverManager.getConnection(db_url, db_id, db_pw);
 
-					String SQL = "INSERT INTO info VALUES(?,?,?,?)";
+					String SQL = "INSERT INTO MEMBERS VALUES(?,?,?,?,?,?)";
 
 					psmt = conn.prepareStatement(SQL);
 					
@@ -146,6 +150,9 @@ public class Join {
 					psmt.setString(2, pw);
 					psmt.setString(3, name);
 					psmt.setInt(4, age);
+					psmt.setString(5, add);
+					psmt.setString(6, pnum);
+					
 					int cnt = psmt.executeUpdate();
 
 				} catch (ClassNotFoundException e1) {
@@ -175,7 +182,7 @@ public class Join {
 
 			}
 		});
-		btn_join.setBounds(388, 297, 200, 35);
+		btn_join.setBounds(388, 423, 200, 35);
 		frame.getContentPane().add(btn_join);
 
 		txt_pw = new JPasswordField();
@@ -193,5 +200,27 @@ public class Join {
 		});
 		btn_back.setBounds(899, 12, 41, 37);
 		frame.getContentPane().add(btn_back);
+		
+		txt_add = new JTextField();
+		txt_add.setColumns(10);
+		txt_add.setBounds(388, 294, 200, 37);
+		frame.getContentPane().add(txt_add);
+		
+		txt_pnum = new JTextField();
+		txt_pnum.setColumns(10);
+		txt_pnum.setBounds(388, 341, 200, 37);
+		frame.getContentPane().add(txt_pnum);
+		
+		JLabel lbl_age_1 = new JLabel("\uC8FC\uC18C");
+		lbl_age_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_age_1.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		lbl_age_1.setBounds(316, 305, 60, 15);
+		frame.getContentPane().add(lbl_age_1);
+		
+		JLabel lbl_age_1_1 = new JLabel("\uC804\uD654\uBC88\uD638");
+		lbl_age_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_age_1_1.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		lbl_age_1_1.setBounds(316, 352, 60, 15);
+		frame.getContentPane().add(lbl_age_1_1);
 	}
 }

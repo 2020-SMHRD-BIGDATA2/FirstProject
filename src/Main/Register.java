@@ -116,8 +116,8 @@ public class Register {
 				gre = (String) comboBox.getSelectedItem();
 			}
 		});
-		comboBox.setModel(new DefaultComboBoxModel(
-				new String[] { "\uBC94\uC8C4, \uC2A4\uB9B4\uB7EC", "\uD310\uD0C0\uC9C0", "\uB85C\uB9E8\uC2A4", "19" }));
+
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"--------\uC120\uD0DD \uD574\uC8FC\uC138\uC694--------", "\uBC94\uC8C4, \uC2A4\uB9B4\uB7EC", "\uD310\uD0C0\uC9C0", "\uB85C\uB9E8\uC2A4", "19"}));
 		comboBox.setBounds(214, 354, 222, 21);
 		panel.add(comboBox);
 

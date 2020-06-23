@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 public class KidsMap {
 
-	private JFrame frame;
+	JFrame frame;
 	KidsFix kf = new KidsFix();
 	KidsLogoutButton klb = new KidsLogoutButton();
 
