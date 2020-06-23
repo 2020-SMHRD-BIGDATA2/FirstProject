@@ -30,7 +30,7 @@ public class Login {
 	DAO dao = new DAO();
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {           // ¹¹ÇÏ´Â ±â´É?
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

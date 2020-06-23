@@ -12,9 +12,6 @@ public class VO {
 		this.pw = pw;
 	}
 	
-	
-	
-
 	public VO(String id, String name, int age) {
 		this.id = id;
 		this.name = name;
