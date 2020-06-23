@@ -30,9 +30,9 @@ public class Fix {
 			}
 		});
 		btn_login.setBounds(903, 45, 60, 30);
-		frame.getContentPane().add(btn_login);
-		btn_login.setBorderPainted(false);
-		btn_login.setContentAreaFilled(false);
+		frame.getContentPane().add(btn_login);  //카드레이 아웃 같은거 삽입
+		btn_login.setBorderPainted(false); // 보더 안보이게
+		btn_login.setContentAreaFilled(false); // 컨텐 아리아 아보이게
 
 		JButton btn_book = new JButton("\uB3C4\uC11C");
 		btn_book.setFont(new Font("굴림", Font.BOLD, 12));
