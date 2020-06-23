@@ -43,6 +43,9 @@ public class Join2 {
 
 	int a = 0;
 	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -79,7 +82,7 @@ public class Join2 {
 		JPanel panel1 = new JPanel();
 		panel1.setLayout(null);
 		panel1.setBackground(Color.WHITE);
-		panel1.setBounds(220, 180, 680, 390);
+		panel1.setBounds(-218, -230, 680, 390);
 		frame.getContentPane().add(panel1);
 
 		JTextPane txt_terms1 = new JTextPane();
@@ -125,7 +128,7 @@ public class Join2 {
 
 		//////////////////////////////////////////////// panel2 시작
 		JPanel panel2 = new JPanel();
-		panel2.setBackground(Color.WHITE);
+		panel2.setBackground(new Color(255, 255, 255));
 		panel2.setBounds(220, 180, 680, 390);
 		frame.getContentPane().add(panel2);
 		panel2.setLayout(null);
@@ -133,69 +136,39 @@ public class Join2 {
 
 		txt_id = new JTextField();
 		txt_id.setBackground(new Color(255, 255, 255));
-		txt_id.setBounds(129, 35, 200, 25);
+		txt_id.setBounds(241, 51, 200, 25);
 		panel2.add(txt_id);
 		txt_id.setColumns(10);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(129, 94, 200, 25);
+		passwordField.setBounds(241, 91, 200, 25);
 		panel2.add(passwordField);
-
-		JLabel lbl_id = new JLabel("\uC544\uC774\uB514");
-		lbl_id.setFont(new Font("함초롬돋움", Font.PLAIN, 15));
-		lbl_id.setBounds(142, 10, 137, 25);
-		panel2.add(lbl_id);
-
-		JLabel lbl_pw = new JLabel("\uBE44\uBC00\uBC88\uD638");
-		lbl_pw.setFont(new Font("함초롬돋움", Font.PLAIN, 15));
-		lbl_pw.setBounds(142, 69, 137, 25);
-		panel2.add(lbl_pw);
-
-		JLabel lbl_name = new JLabel("\uC774\uB984");
-		lbl_name.setFont(new Font("함초롬돋움", Font.PLAIN, 15));
-		lbl_name.setBounds(142, 129, 137, 25);
-		panel2.add(lbl_name);
 
 		txt_name = new JTextField();
 		txt_name.setColumns(10);
-		txt_name.setBounds(129, 154, 200, 25);
+		txt_name.setBounds(241, 131, 200, 25);
 		panel2.add(txt_name);
-
-		JLabel lbl_age = new JLabel("\uB098\uC774");
-		lbl_age.setFont(new Font("함초롬돋움", Font.PLAIN, 15));
-		lbl_age.setBounds(142, 216, 137, 25);
-		panel2.add(lbl_age);
 
 		txt_age = new JTextField();
 		txt_age.setColumns(10);
-		txt_age.setBounds(129, 241, 200, 25);
+		txt_age.setBounds(241, 191, 200, 25);
 		panel2.add(txt_age);
-
-		JLabel lbl_phoneNumber = new JLabel("\uC804\uD654\uBC88\uD638");
-		lbl_phoneNumber.setFont(new Font("함초롬돋움", Font.PLAIN, 15));
-		lbl_phoneNumber.setBounds(383, 10, 137, 25);
-		panel2.add(lbl_phoneNumber);
 
 		txt_phoneNumber = new JTextField();
 		txt_phoneNumber.setColumns(10);
-		txt_phoneNumber.setBounds(383, 35, 200, 25);
+		txt_phoneNumber.setBounds(241, 231, 200, 25);
 		panel2.add(txt_phoneNumber);
-
-		JLabel lbl_address = new JLabel("\uC8FC\uC18C");
-		lbl_address.setFont(new Font("함초롬돋움", Font.PLAIN, 15));
-		lbl_address.setBounds(383, 93, 137, 25);
-		panel2.add(lbl_address);
 
 		JRadioButton rd_woman = new JRadioButton("\uC5EC\uC131");
 		rd_woman.setFont(new Font("함초롬돋움", Font.PLAIN, 13));
 		rd_woman.setBackground(Color.WHITE);
-		rd_woman.setBounds(139, 185, 70, 25);
+		rd_woman.setBounds(251, 161, 70, 25);
 		panel2.add(rd_woman);
 
 		JRadioButton rd_man = new JRadioButton("\uB0A8\uC131");
 		rd_man.setFont(new Font("함초롬돋움", Font.PLAIN, 13));
 		rd_man.setBackground(Color.WHITE);
-		rd_man.setBounds(231, 185, 70, 25);
+		rd_man.setBounds(343, 161, 70, 25);
 		panel2.add(rd_man);
 		
 		ButtonGroup group = new ButtonGroup();
@@ -205,42 +178,42 @@ public class Join2 {
 		JCheckBox ck_smsAgree = new JCheckBox("sms \uC218\uC2E0 \uB3D9\uC758");
 		ck_smsAgree.setBackground(Color.WHITE);
 		ck_smsAgree.setFont(new Font("함초롬돋움", Font.PLAIN, 13));
-		ck_smsAgree.setBounds(383, 66, 115, 25);
+		ck_smsAgree.setBounds(241, 261, 115, 25);
 		panel2.add(ck_smsAgree);
-
-
-		JButton btn_complete = new JButton("");
-		btn_complete.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다 !", "회원가입", JOptionPane.INFORMATION_MESSAGE);
-				frame.dispose();
-				Main.main(null);
-				Login.main(null);
-			}
-		});
-		btn_complete.setBounds(383, 241, 200, 25);
-		panel2.add(btn_complete);
-		btn_complete.setBorderPainted(false);
-		btn_complete.setContentAreaFilled(false);
-		
-		JLabel lbl_completeText = new JLabel("\uAC00\uC785\uC644\uB8CC");
-		lbl_completeText.setFont(new Font("함초롬돋움", Font.PLAIN, 15));
-		lbl_completeText.setBounds(452, 240, 70, 25);
-		panel2.add(lbl_completeText);
 		
 		URL path2 = this.getClass().getResource("..\\img\\joinCompleteButton.png");
 		Image image2 = new ImageIcon(path2).getImage();
 		
-		JLabel lbl_complete = new JLabel(new ImageIcon(image2.getScaledInstance(200, 25, Image.SCALE_SMOOTH)));
-		lbl_complete.setBounds(383, 241, 200, 25);
-		panel2.add(lbl_complete);
-		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(383, 117, 200, 25);
+		textField.setBounds(241, 295, 200, 25);
 		panel2.add(textField);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(0, 90, 225, 225);
+		panel2.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lbl_saying = new JLabel("");
+		lbl_saying.setBounds(0, 0, 200, 225);
+		
+		URL path_saying = this.getClass().getResource("..\\img\\asd.png");
+		Image image_saying = new ImageIcon(path_saying).getImage();
+
+		lbl_saying = new JLabel(new ImageIcon(image_saying.getScaledInstance(225, 245, Image.SCALE_SMOOTH)));
+		lbl_saying.setBounds(0, 0, 225, 225);
+		panel_2.add(lbl_saying);
+		
+		JLabel lbl_join2 = new JLabel("");
+		lbl_join2.setBounds(241, 0, 200, 41);
+		
+		URL path_join2 = this.getClass().getResource("..\\img\\join_.png");
+		Image image_join2 = new ImageIcon(path_join2).getImage();
+
+		lbl_join2 = new JLabel(new ImageIcon(image_join2.getScaledInstance(200, 41, Image.SCALE_SMOOTH)));
+		lbl_join2.setBounds(241, 0, 200, 45);
+		panel2.add(lbl_join2);
+		
 
 		JButton btn_next = new JButton("");
 		btn_next.addActionListener(new ActionListener() {
@@ -265,12 +238,83 @@ public class Join2 {
 		panel_1.setBounds(70, 146, 535, 70);
 		panel1.add(panel_1);
 
+		
+		JPanel panel3 = new JPanel();
+		panel3.setBackground(Color.WHITE);
+		panel3.setBounds(220, 180, 680, 390);
+		frame.getContentPane().add(panel3);
+		panel3.setLayout(null);
+		
+//		JLabel lbl_pay = new JLabel("");
+//		lbl_pay.setBounds(102, 72, 456, 215);
+//		panel_3.add(lbl_pay);
+		
+		
+		JButton btnNewButton = new JButton("\uAC00\uC785 \uC644\uB8CC");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Main.main(null);	
+			}
+		});
+		btnNewButton.setFont(new Font("함초롬돋움", Font.PLAIN, 15));
+		btnNewButton.setBounds(161, 326, 350, 27);
+		panel3.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("\uBCF4\uC99D\uAE08 \uACB0\uC81C");
+		lblNewLabel_1.setBackground(new Color(0, 0, 0));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("함초롬돋움", Font.BOLD, 25));
+		lblNewLabel_1.setBounds(144, 22, 350, 63);
+		panel3.add(lblNewLabel_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(289, 200, 250, 25);
+		panel3.add(textField_1);
+		textField_1.setColumns(10);
+		
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("SKT");
+		rdbtnNewRadioButton.setBackground(new Color(255, 255, 255));
+		rdbtnNewRadioButton.setBounds(290, 239, 60, 23);
+		panel3.add(rdbtnNewRadioButton);
+		
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("LG U+");
+		rdbtnNewRadioButton_1.setBackground(new Color(255, 255, 255));
+		rdbtnNewRadioButton_1.setBounds(360, 239, 60, 23);
+		panel3.add(rdbtnNewRadioButton_1);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("KT");
+		rdbtnNewRadioButton_2.setBackground(new Color(255, 255, 255));
+		rdbtnNewRadioButton_2.setBounds(430, 239, 60, 23);
+		panel3.add(rdbtnNewRadioButton_2);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(289, 274, 116, 25);
+		panel3.add(textField_2);
+		textField_2.setColumns(10);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(430, 274, 116, 25);
+		panel3.add(passwordField_1);
+		
+		JLabel lbl_pay = new JLabel("");
+		lbl_pay.setBounds(102, 72, 456, 215);
+		
+		URL path_pay = this.getClass().getResource("..\\img\\pay.png");
+		Image image_pay = new ImageIcon(path_pay).getImage();
+		
+		lbl_pay = new JLabel(new ImageIcon(image_pay.getScaledInstance(456,215, Image.SCALE_SMOOTH)));
+		lbl_pay.setBounds(102, 95, 456, 215);
+		panel3.add(lbl_pay);
+		
 		URL path = this.getClass().getResource("..\\img\\Map.png");
 		Image image = new ImageIcon(path).getImage();
-
+		
 		JLabel lblNewLabel = new JLabel(new ImageIcon(image.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
 		lblNewLabel.setBounds(0, 0, 1199, 601);
 		frame.getContentPane().add(lblNewLabel);
-
 	}
 }
