@@ -111,6 +111,13 @@ public class Join2 {
 
 		JCheckBox ck_agreeAll = new JCheckBox(
 				"\uC774\uC6A9\uC57D\uAD00 \uBC0F \uAC1C\uC778\uC815\uBCF4 \uC218\uC9D1\uC5D0 \uBAA8\uB450 \uB3D9\uC758\uD569\uB2C8\uB2E4.");
+		ck_agreeAll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+		});
 		ck_agreeAll.setFont(new Font("«‘√ ∑“µ∏øÚ", Font.PLAIN, 13));
 		ck_agreeAll.setBackground(Color.WHITE);
 		ck_agreeAll.setBounds(75, 268, 300, 23);
