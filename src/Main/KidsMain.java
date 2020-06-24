@@ -131,7 +131,7 @@ public class KidsMain {
 		lbl_reco.setBounds(435, 130, 250, 50);
 		frame.getContentPane().add(lbl_reco);
 		
-		URL path = this.getClass().getResource("..\\img\\KidsMap.png");
+		URL path = this.getClass().getResource("..\\img\\KidsMain.png");
 		Image image = new ImageIcon(path).getImage();
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_background = new JLabel(new ImageIcon(image.getScaledInstance(1200, 600, Image.SCALE_SMOOTH)));

@@ -24,142 +24,153 @@ import javax.swing.JPasswordField;
 
 public class Login {
 
-	private JFrame frame;
-	private JTextField txt_id;
-	private JPasswordField txt_pw;
-	DAO dao = new DAO();
+   private JFrame frame;
+   private JTextField txt_id;
+   private JPasswordField txt_pw;
+   DAO dao = new DAO();
+   private static String id1 = null; 
+   private static String idid = null;
 
 
-	public static void main(String[] args) {           // 뭐하는 기능?
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login window = new Login();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	public Login() {
-		initialize();
-	}
+   public static void main(String[] args) {           // 뭐하는 기능?
+      EventQueue.invokeLater(new Runnable() {
+         public void run() {
+            try {
+               Login window = new Login();
+               window.frame.setVisible(true);
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+         }
+      });
+   }
 
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 410, 570);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+   public Login() {
+      initialize();
+   }
 
-		txt_id = new JTextField();
-		txt_id.setBounds(125, 204, 150, 30);
-		frame.getContentPane().add(txt_id);
-		txt_id.setColumns(10);
-		txt_id.setOpaque(false);
-	    txt_id.setBorder(null);
+   private void initialize() {
+      frame = new JFrame();
+      frame.setBounds(100, 100, 410, 570);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.getContentPane().setLayout(null);
 
-		txt_pw = new JPasswordField();
-		txt_pw.setBounds(125, 259, 150, 30);
-		frame.getContentPane().add(txt_pw);
-		txt_pw.setOpaque(false);
-	    txt_pw.setBorder(null);
+      txt_id = new JTextField();
+      txt_id.setBounds(125, 204, 150, 30);
+      frame.getContentPane().add(txt_id);
+      txt_id.setColumns(10);
+      txt_id.setOpaque(false);
+       txt_id.setBorder(null);
 
-		JButton btn_login = new JButton("");
-		btn_login.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String id = txt_id.getText();
-				String pw = txt_pw.getText();
+      txt_pw = new JPasswordField();
+      txt_pw.setBounds(125, 259, 150, 30);
+      frame.getContentPane().add(txt_pw);
+      txt_pw.setOpaque(false);
+       txt_pw.setBorder(null);
 
-				Connection conn = null;
-				PreparedStatement psmt = null;
-				ResultSet rs = null;
+      JButton btn_login = new JButton("");
+      btn_login.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            String id = txt_id.getText();
+            String pw = txt_pw.getText();
 
-				try {
-					Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn = null;
+            PreparedStatement psmt = null;
+            ResultSet rs = null;
 
-					String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-					String db_id = "hr";
-					String db_pw = "hr";
+            try {
+               Class.forName("oracle.jdbc.driver.OracleDriver");
 
-					conn = DriverManager.getConnection(db_url, db_id, db_pw);
+               String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
+               String db_id = "hr";
+               String db_pw = "hr";
 
-					String sql = "SELECT * FROM info WHERE ID = ? AND PW = ?";
+               conn = DriverManager.getConnection(db_url, db_id, db_pw);
 
-					psmt = conn.prepareStatement(sql);
-					psmt.setString(1, id);
-					psmt.setString(2, pw);
-					rs = psmt.executeQuery();
+               String sql = "SELECT * FROM MEMBERS WHERE MEM_ID = ? AND MEM_PW = ?";
 
-					// if 문 시작해서 db안의 데이터의 id pw가 일치 할 시 실행
-					
-					// Main.main(null);
+               psmt = conn.prepareStatement(sql);
+               psmt.setString(1, id);
+               psmt.setString(2, pw);
+               rs = psmt.executeQuery();
 
-//					String id = txt_id.getText();
-//					String pw = txt_pw.getText();
+               // if 문 시작해서 db안의 데이터의 id pw가 일치 할 시 실행
+               
+               // Main.main(null);
 
-					String id1 = txt_id.getText();
-					String pw1 = txt_pw.getText();
-					VO vo = new VO(id1, pw1);
-					String name = dao.login(vo);
+//               String id = txt_id.getText();
+//               String pw = txt_pw.getText();
 
-					if (name != null) {
-						JOptionPane.showMessageDialog(null, name + "님 환영합니다!");
-						frame.dispose();
+               id1 = txt_id.getText();
+               String pw1 = txt_pw.getText();
+               VO vo = new VO(id1, pw1);
+               String name = dao.login(vo);
 
-					} else {
-						JOptionPane.showMessageDialog(null, "로그인에 실패하였습니다!");
+               if (name != null) {
+                  JOptionPane.showMessageDialog(null, name + "님 환영합니다!");
+                  frame.dispose();
+                        idid = id1 ;
 
-					}
 
-//		            boolean check = false;
-//		            int index = 0;
-//		            
-//		            for (int i = 0; i < Join.list.size(); i++) {
-//		               if (Join.list.get(i).getId().equals(id) && Join.list.get(i).getPw().equals(pw)) {
-//		                  // System.out.println("로그인 성공 " + Join.list.get(i).getName()+"님 환영합니다.");
-//		                  check = true;
-//		                  index = i;
-//		               }
-//		            }
+               } else {
+                  JOptionPane.showMessageDialog(null, "로그인에 실패하였습니다!");
 
-					//
+               }
 
-				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				} finally {
-					try {
-						if (rs != null) {
-							rs.close();
-						}
-						if (psmt != null) {
-							psmt.close();
-						}
-						if (conn != null) {
-							conn.close();
-						}
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-					}
-				}
+//                  boolean check = false;
+//                  int index = 0;
+//                  
+//                  for (int i = 0; i < Join.list.size(); i++) {
+//                     if (Join.list.get(i).getId().equals(id) && Join.list.get(i).getPw().equals(pw)) {
+//                        // System.out.println("로그인 성공 " + Join.list.get(i).getName()+"님 환영합니다.");
+//                        check = true;
+//                        index = i;
+//                     }
+//                  }
 
-			}
-		});
-		btn_login.setBorderPainted(false);
-		btn_login.setContentAreaFilled(false);
+               //
 
-		btn_login.setBounds(120, 315, 160, 35);
-		frame.getContentPane().add(btn_login);
+            } catch (ClassNotFoundException e1) {
+               e1.printStackTrace();
+            } catch (SQLException e1) {
+               e1.printStackTrace();
+            } finally {
+               try {
+                  if (rs != null) {
+                     rs.close();
+                  }
+                  if (psmt != null) {
+                     psmt.close();
+                  }
+                  if (conn != null) {
+                     conn.close();
+                  }
+               } catch (SQLException e1) {
+                  e1.printStackTrace();
+               }
+            }
 
-		URL path = this.getClass().getResource("..\\img\\LoginMain.png");
-		Image image = new ImageIcon(path).getImage();
+         }
+      });
+      btn_login.setBorderPainted(false);
+      btn_login.setContentAreaFilled(false);
 
-		JLabel lbl_img = new JLabel(new ImageIcon(image.getScaledInstance(400, 540, Image.SCALE_SMOOTH)));
-		lbl_img.setBounds(0, 0, 400, 540);
-		frame.getContentPane().add(lbl_img);
+      btn_login.setBounds(120, 315, 160, 35);
+      frame.getContentPane().add(btn_login);
 
-	}
+      URL path = this.getClass().getResource("..\\img\\LoginMain.png");
+      Image image = new ImageIcon(path).getImage();
+
+      JLabel lbl_img = new JLabel(new ImageIcon(image.getScaledInstance(400, 540, Image.SCALE_SMOOTH)));
+      lbl_img.setBounds(0, 0, 400, 540);
+      frame.getContentPane().add(lbl_img);
+
+   }
+   
+      public static String login() {
+            
+            return idid;
+         }
+
 }

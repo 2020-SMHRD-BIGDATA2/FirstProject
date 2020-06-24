@@ -8,133 +8,161 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DAO {
-	private Connection conn;
-	private PreparedStatement psmt;
-	private ResultSet rs;
+   private Connection conn;
+   private PreparedStatement psmt;
+   private ResultSet rs;
 
-	private void getConnection() {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String db_id = "hr";
-			String db_pw = "hr";
+   private void getConnection() {
+      try {
+         Class.forName("oracle.jdbc.driver.OracleDriver");
+         String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
+         String db_id = "hr";
+         String db_pw = "hr";
 
-			conn = DriverManager.getConnection(db_url, db_id, db_pw);
+         conn = DriverManager.getConnection(db_url, db_id, db_pw);
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+      } catch (ClassNotFoundException e) {
+         e.printStackTrace();
+      } catch (SQLException e) {
+         e.printStackTrace();
+      }
+   }
 
-	private void close() {
-		try {
-			if (rs != null) {
-				rs.close();
-			}
-			if (psmt != null) {
-				psmt.close();
-			}
-			if (conn != null) {
-				conn.close();
-			}
+   private void close() {
+      try {
+         if (rs != null) {
+            rs.close();
+         }
+         if (psmt != null) {
+            psmt.close();
+         }
+         if (conn != null) {
+            conn.close();
+         }
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+      } catch (SQLException e) {
+         e.printStackTrace();
+      }
+   }
 
-	public int join(VO vo) {
+   public int join(VO vo) {
 
-		int cnt = 0;
+      int cnt = 0;
 
-		try {
+      try {
 
-			getConnection();
+         getConnection();
 
-			String sql = "INSERT INTO MEMBERS VALUES(?,?,?,?,?,?)";
+         String sql = "INSERT INTO MEMBERS VALUES(?,?,?,?,?,?)";
 
-			psmt = conn.prepareStatement(sql);
+         psmt = conn.prepareStatement(sql);
 
-			// id중복 불가능 기능 추가
-//			for (int i = 0; i < args.length; i++) {
-//				
-//			}
+         // id중복 불가능 기능 추가
+//         for (int i = 0; i < args.length; i++) {
+//            
+//         }
 
-			psmt.setString(1, vo.getId());
-			psmt.setString(2, vo.getPw());
-			psmt.setString(3, vo.getName());
-			psmt.setInt(4, vo.getAge());
-			psmt.setString(5, vo.getAdd());
-			psmt.setString(6, vo.getPnum());
-			
-			cnt = psmt.executeUpdate();
+         psmt.setString(1, vo.getId());
+         psmt.setString(2, vo.getPw());
+         psmt.setString(3, vo.getName());
+         psmt.setInt(4, vo.getAge());
+         psmt.setString(5, vo.getAdd());
+         psmt.setString(6, vo.getPnum());
+         
+         cnt = psmt.executeUpdate();
 
-		} catch (SQLException e) {
-			// url, id, pw 중 하나라도 틀릴 가능성이 있기 때문에 작성
-			e.printStackTrace();
+      } catch (SQLException e) {
+         // url, id, pw 중 하나라도 틀릴 가능성이 있기 때문에 작성
+         e.printStackTrace();
 
-		} finally {
-			// 여기서 닫아주면댐 (4번)
-			close();
-		}
+      } finally {
+         // 여기서 닫아주면댐 (4번)
+         close();
+      }
 
-		return cnt;
-	}
+      return cnt;
+   }
 
-	public String login(VO vo) {
-		String name = null;
+   public String login(VO vo) {
+      String name = null;
 
-		try {
-			getConnection();
+      try {
+         getConnection();
 
-			String sql = "SELECT * FROM MEMBERS WHERE MEM_ID = ? AND MEM_PW = ?";
+         String sql = "SELECT * FROM MEMBERS WHERE MEM_ID = ? AND MEM_PW = ?";
 
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getId());
-			psmt.setString(2, vo.getPw());
-			rs = psmt.executeQuery(); // 데이터를 가져와서 확인을 할 때
-			// 로그인 성공 실패 하는 부분
-			if (rs.next()) { // 로그인 성공시 들어오는 곳
-				name = rs.getString("MEM_NAME");// 로그인 실패시 null 이 됨
+         psmt = conn.prepareStatement(sql);
+         psmt.setString(1, vo.getId());
+         psmt.setString(2, vo.getPw());
+         rs = psmt.executeQuery(); // 데이터를 가져와서 확인을 할 때
+         // 로그인 성공 실패 하는 부분
+         if (rs.next()) { // 로그인 성공시 들어오는 곳
+            name = rs.getString("MEM_NAME");// 로그인 실패시 null 이 됨
 
-			}
+         }
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return name;
-	}
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+         close();
+      }
+      return name;
+   }
 
-	public ArrayList<VO> selectAll() {
+   public ArrayList<VO> selectAll() {
 
-		ArrayList<VO> list = new ArrayList<VO>();
+      ArrayList<VO> list = new ArrayList<VO>();
 
-		getConnection();
+      getConnection();
 
-		try {
-			String sql = "SELECT * FROM MEMBERS";
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
+      try {
+         String sql = "SELECT * FROM MEMBERS";
+         psmt = conn.prepareStatement(sql);
+         rs = psmt.executeQuery();
 
-			while (rs.next()) {
-				String id = rs.getString("MEM_ID");
-				String name = rs.getString("MEM_NAME");
-				int age = rs.getInt("MEM_AGE");
+         while (rs.next()) {
+            String id = rs.getString("MEM_ID");
+            String name = rs.getString("MEM_NAME");
+            int age = rs.getInt("MEM_AGE");
 
-				VO vo = new VO(id, name, age);
-				list.add(vo);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
+            VO vo = new VO(id, name, age);
+            list.add(vo);
+         }
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+         close();
+      }
 
-		return list;
-	}
+      return list;
+   }
+   
+   public boolean duplibcateIdCheck(String id) {
+         
+         boolean result = false;
+         
+         getConnection();      
+         
+         try {
+            String sql = "SELECT MEM_ID FROM MEMBERS WHERE MEM_ID = ?";
+            psmt = conn.prepareStatement(sql);
+            psmt.setString(1, id);
+            
+            rs = psmt.executeQuery();
+
+            if(rs.next()) {
+               result = true; // 아이디가 존재하지 않으면 false
+            }
+            
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }finally {
+            close();
+         }
+         return result;
+         
+      }
+   
+
 
 }
