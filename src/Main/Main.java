@@ -22,15 +22,11 @@ import java.awt.event.MouseAdapter;
 public class Main {
 
 	JFrame frame;
-	private JTextField txt_find;
 	int cnt = 0;
 
 	Fix test = new Fix();
 	Login log = new Login();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,28 +40,15 @@ public class Main {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public Main() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1215, 640);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		txt_find = new JTextField();
-		txt_find.setHorizontalAlignment(SwingConstants.CENTER);
-		txt_find.setBounds(275, 42, 540, 45);
-		frame.getContentPane().add(txt_find);
-		txt_find.setColumns(10);
-		txt_find.setBackground(null);
 
 		Image[] list = new Image[3];
 		list[0] = new ImageIcon("C:\\Users\\SHMRD\\Pictures\\Screenshots\\121.png").getImage();
@@ -74,93 +57,147 @@ public class Main {
 
 		Image image = list[cnt];
 
-		JLabel lbl_img1 = new JLabel(new ImageIcon(image.getScaledInstance(660, 341, Image.SCALE_SMOOTH)));
-		lbl_img1.setBackground(Color.WHITE);
-		lbl_img1.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_img1.setBounds(260, 184, 600, 331);
-		frame.getContentPane().add(lbl_img1);
-
 		test.sup_mix(frame);
 
-		JButton btn_left = new JButton("");
-		btn_left.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				if (cnt > 2) {
-					cnt = 0;
-				}
-
-				// label에 이미지를 재설정 -> 매개변수로 Icon -> 이미지를 세팅할거니까 new ImageIcon()
-				lbl_img1.setIcon(new ImageIcon(list[cnt].getScaledInstance(660, 341, Image.SCALE_SMOOTH)));
-				cnt++;
-
-				if (cnt > 2) {
-					cnt = 0;
-				}
-
-			}
-		});
-		btn_left.setBounds(260, 184, 50, 331);
-		frame.getContentPane().add(btn_left);
-		btn_left.setBorderPainted(false);
-		btn_left.setContentAreaFilled(false);
-
-		JButton btn_right = new JButton("");
-		btn_right.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				if (cnt < 0) {
-					cnt = 2;
-				}
-
-				lbl_img1.setIcon(new ImageIcon(list[cnt].getScaledInstance(660, 341, Image.SCALE_SMOOTH)));
-				cnt--;
-
-				if (cnt < 0) {
-					cnt = 2;
-				}
-
-			}
-		});
-		btn_right.setBounds(815, 185, 50, 331);
-		frame.getContentPane().add(btn_right);
-		btn_right.setBorderPainted(false);
-		btn_right.setContentAreaFilled(false);
 		
-		JButton btnNewButton = new JButton("\uD76C\uC218\uC57C \uC774\uAC70\uBD10");
-
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(220, 180, 680, 390);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lbl_book1 = new JLabel("");
+		URL path_book1 = this.getClass().getResource("..\\img\\book1.png");
+		Image image_book1 = new ImageIcon(path_book1).getImage();
+		lbl_book1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				cnt = 1;
-				btnNewButton.setIcon(new ImageIcon(list[cnt]));
+				URL path_book1 = this.getClass().getResource("..\\img\\book1_info.png");
+				Image image_book1 = new ImageIcon(path_book1).getImage();
 				
-		        
-		        
-		        
-		        
+				lbl_book1.setIcon(new ImageIcon(image_book1.getScaledInstance(220, 325, Image.SCALE_SMOOTH)));
 			}
-			@Override
 			public void mouseExited(MouseEvent e) {
-				cnt = 2;
-				btnNewButton.setIcon(new ImageIcon(list[cnt]));
 				
+				
+				lbl_book1.setIcon(new ImageIcon(image_book1.getScaledInstance(220, 325, image.SCALE_REPLICATE)));
+
 			}
 		});
+		lbl_book1.setBounds(0, 10, 220, 325);
+		lbl_book1.setIcon(new ImageIcon(image_book1.getScaledInstance(220, 325, image.SCALE_REPLICATE)));
+		panel.add(lbl_book1);
+		lbl_book1.setBounds(0, 10, 220, 325);
+		panel.add(lbl_book1);
+		
 
+//		JButton btnNewButton = new JButton("New button");
+//		URL path_book1 = this.getClass().getResource("..\\img\\book1.png");
+//		Image image_book1 = new ImageIcon(path_book1).getImage();
+//		btnNewButton.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseEntered(MouseEvent e) {
+//				URL path_book12 = this.getClass().getResource("..\\img\\book1_info.png");
+//				Image image_book12 = new ImageIcon(path_book12).getImage();
+//				
+//				
+//				btnNewButton.setIcon(new ImageIcon(image_book12.getScaledInstance(220, 325, Image.SCALE_SMOOTH)));
+//
+//			}
+//			@Override
+//			public void mouseExited(MouseEvent e) {
+//				
+//				
+//				
+//				btnNewButton.setIcon(new ImageIcon(image_book1));
+//
+//			}
+//		});
+//		btnNewButton.setBounds(0, 10, 220, 325);
+//		btnNewButton.setIcon(new ImageIcon(image_book1));
+//		panel.add(btnNewButton);
+		
+		JLabel lbl_book2 = new JLabel("");
+		URL path_book2 = this.getClass().getResource("..\\img\\book2.png");
+		Image image_book2 = new ImageIcon(path_book2).getImage();
+		lbl_book2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				URL path_book2 = this.getClass().getResource("..\\img\\book2_info.png");
+				Image image_book2 = new ImageIcon(path_book2).getImage();
+				
+				lbl_book2.setIcon(new ImageIcon(image_book2.getScaledInstance(220, 325, Image.SCALE_SMOOTH)));
+			}
+			public void mouseExited(MouseEvent e) {
+				
+				
+				lbl_book2.setIcon(new ImageIcon(image_book2.getScaledInstance(220, 325, image.SCALE_REPLICATE)));
 
+			}
+		});
+		lbl_book2.setBounds(230, 10, 220, 338);
+		lbl_book2.setIcon(new ImageIcon(image_book2.getScaledInstance(220, 325, image.SCALE_REPLICATE)));
+		panel.add(lbl_book2);
+		lbl_book2.setBounds(230, 10, 220, 325);
+		panel.add(lbl_book2);
+		
+		
+//		JButton btn_book2 = new JButton("New button");
+//		URL path_book2 = this.getClass().getResource("..\\img\\book2.png");
+//		Image image_book2 = new ImageIcon(path_book2).getImage();
+//		btn_book2.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseEntered(MouseEvent e) {
+//				URL path_book2 = this.getClass().getResource("..\\img\\book2_info.png");
+//				Image image_book2 = new ImageIcon(path_book2).getImage();
+//				
+//				
+//				btn_book2.setIcon(new ImageIcon(image_book2.getScaledInstance(220, 325, Image.SCALE_SMOOTH)));
+//
+//			}
+//			@Override
+//			public void mouseExited(MouseEvent e) {
+//				
+//				
+//				
+//				btn_book2.setIcon(new ImageIcon(image_book2));
+			
+		JLabel lbl_book3 = new JLabel("");
+		URL path_book3 = this.getClass().getResource("..\\img\\book3.png");
+		Image image_book3 = new ImageIcon(path_book3).getImage();
+		lbl_book3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				URL path_book3 = this.getClass().getResource("..\\img\\book3_info.png");
+				Image image_book3 = new ImageIcon(path_book3).getImage();
+				
+				lbl_book3.setIcon(new ImageIcon(image_book3.getScaledInstance(220, 325, Image.SCALE_SMOOTH)));
+			}
+			public void mouseExited(MouseEvent e) {
+				
+				
+				lbl_book3.setIcon(new ImageIcon(image_book3.getScaledInstance(220, 325, image.SCALE_REPLICATE)));
 
-		btnNewButton.setBounds(12, 123, 183, 66);
-		frame.getContentPane().add(btnNewButton);
+			}
+		});
+		lbl_book3.setBounds(460, 10, 220, 325);
+		lbl_book3.setIcon(new ImageIcon(image_book3.getScaledInstance(220, 325, image.SCALE_REPLICATE)));
+		panel.add(lbl_book3);
+		lbl_book3.setBounds(460, 10, 220, 325);
+		panel.add(lbl_book3);
 
-		URL path = this.getClass().getResource("..\\img\\Main.png");
+		
+		JLabel lbl_reco = new JLabel("\uC774 \uB2EC\uC758 \uCD94\uCC9C \uB3C4\uC11C");
+		lbl_reco.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_reco.setFont(new Font("함초롬돋움", Font.BOLD, 25));
+		lbl_reco.setBounds(435, 130, 250, 50);
+		frame.getContentPane().add(lbl_reco);
+		
+		URL path = this.getClass().getResource("..\\img\\Map.png");
 		Image image1 = new ImageIcon(path).getImage();
-
+		
 		JLabel lblNewLabel = new JLabel(new ImageIcon(image1.getScaledInstance(1215, 640, Image.SCALE_SMOOTH)));
 		lblNewLabel.setBounds(0, 0, 1199, 601);
 		frame.getContentPane().add(lblNewLabel);
-		
-
-
 	}
 }
